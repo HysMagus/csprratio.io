@@ -1,9 +1,8 @@
 const head = {
-  title: '💪 RatioGang 📈 - The ETH / BTC Ratio Tracker',
+  title: 'CSPR Ratio - The CSPR / ETH Ratio Tracker',
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { hid: 'description', name: 'description', content: 'Ratio Gang assemble! Monitor the progress of Ethereum (ETH) in overtaking Bitcoin (BTC) by market cap.' },
     { hid: 'twitter:image', name: 'twitter:image', content: 'https://ratiogang.com/og.png' }
   ]
 }
@@ -61,10 +60,10 @@ export default {
   // PWA config
   pwa: {
     meta: {
-      ogSiteName: '💪 RatioGang 📈 - The ETH / BTC Ratio Tracker',
-      ogTitle: '💪 RatioGang 📈 - The ETH / BTC Ratio Tracker',
-      ogDescription: 'Ratio Gang assemble! Monitor the progress of Ethereum (ETH) in overtaking Bitcoin (BTC) by market cap.',
-      ogHost: 'https://ratiogang.com',
+      ogSiteName: 'CSPR Ratio',
+      ogTitle: 'CSPR Ratio',
+      ogDescription: 'CSPR Ratio to ETH',
+      ogHost: 'https://csprratio.io',
       ogImage: '/og.png',
       twitterCard: 'summary_large_image'
     }

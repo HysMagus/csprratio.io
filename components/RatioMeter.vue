@@ -54,65 +54,6 @@
           </span>
           <transition name="fade">
             <span
-              v-if="max < 0.4"
-              class="badge death-of-eth-party font-bold dark:text-gray-300"
-              :data-passed="ratio >= deathOfEth"
-              :style="{
-                left: `${deathOfEthPercent}%`,
-              }"
-            >
-              <span class="number">
-                {{ deathOfEth }}
-              </span>
-              <span class="font-normal text-xs text-gray-700 dark:text-gray-400">
-                <span class="monospace">({{ deathOfEthDollars }})</span>
-              </span>
-              <span class="leading-tight">
-                <a href="https://twitter.com/LUKACACIC/status/1377371626656952326" target="_blank" rel="noopener">
-                  Death of ETH&nbsp;Party
-                </a>
-              </span>
-              <span class="text-4xl leading-none mt-2">🎉</span>
-            </span>
-          </transition>
-          <transition name="fade">
-            <span
-              v-show="max <= 0.2"
-              class="badge deserved font-bold dark:text-gray-300"
-              :data-passed="ratio >= deserved"
-              :style="{
-                left: `${deservedPercent}%`,
-              }"
-            >
-              <span class="number">
-                {{ deserved }}
-              </span>
-              <span class="font-normal text-xs text-gray-700 dark:text-gray-400">
-                <span class="monospace">({{ deservedDollars }})</span>
-              </span>
-              <span class="leading-tight badge-label">We should at least be here</span>
-            </span>
-          </transition>
-          <transition name="fade">
-            <span
-              v-show="max >= 0.2"
-              class="badge target dark:text-gray-300"
-              :data-passed="ratio >= flippening"
-              :style="{
-                left: `${targetPercent}%`,
-              }"
-            >
-              <span class="number">
-                {{ flippening }}
-              </span>
-              <span class="font-normal text-xs text-gray-700 dark:text-gray-400">
-                <span class="monospace">({{ targetDollars }})</span>
-              </span>
-              <span class="text-4xl leading-none mt-2">🐬</span>
-            </span>
-          </transition>
-          <transition name="fade">
-            <span
               v-show="max >= 0.4"
               class="badge target dark:text-gray-300"
               :data-passed="ratio >= (flippening * 2).toFixed(5)"

@@ -11,15 +11,15 @@
       class="sticky-trigger"
     />
     <span class="text-right mr-2 sm:mr-4 md:mr-8">
-      <strong class="text-gray-700 dark:text-gray-400">ETH:</strong> <span class="monospace">{{ formatPrice(eth.current_price, userSelectedCurrency.format, userSelectedCurrency.id) }}</span><br>
-      <span class="change-percent" :data-increased="isPossitive(eth24hPercentChange)">
-        {{ eth24hPercentChange }}% <span class="text-gray-600 dark:text-gray-500">24h price</span>
+      <strong class="text-gray-700 dark:text-gray-400">CSPR:</strong> <span class="monospace">{{ formatPrice(CSPR.current_price, userSelectedCurrency.format, userSelectedCurrency.id) }}</span><br>
+      <span class="change-percent" :data-increased="isPossitive(CSPR24hPercentChange)">
+        {{ CSPR24hPercentChange }}% <span class="text-gray-600 dark:text-gray-500">24h price</span>
       </span>
     </span>
     <span class="text-right mr-2 sm:mr-4 md:mr-8">
-      <strong class="text-gray-700 dark:text-gray-400">BTC:</strong> <span class="monospace">{{ formatPrice(btc.current_price, userSelectedCurrency.format, userSelectedCurrency.id) }}</span><br>
-      <span class="change-percent" :data-increased="isPossitive(btc24hPercentChange)">
-        {{ btc24hPercentChange }}% <span class="text-gray-600 dark:text-gray-500">24h price</span>
+      <strong class="text-gray-700 dark:text-gray-400">ETH:</strong> <span class="monospace">{{ formatPrice(ETH.current_price, userSelectedCurrency.format, userSelectedCurrency.id) }}</span><br>
+      <span class="change-percent" :data-increased="isPossitive(ETH24hPercentChange)">
+        {{ ETH24hPercentChange }}% <span class="text-gray-600 dark:text-gray-500">24h price</span>
       </span>
     </span>
     <span class="text-right">
@@ -46,17 +46,17 @@ export default {
   computed: {
     ...mapGetters({
       userSelectedCurrency: 'markets/userSelectedCurrency',
-      eth: 'markets/eth',
-      btc: 'markets/btc',
+      CSPR: 'markets/CSPR',
+      ETH: 'markets/ETH',
       ratio: 'markets/ratio',
-      eth24hPercentChange: 'markets/eth24hPercentChange',
-      btc24hPercentChange: 'markets/btc24hPercentChange'
+      CSPR24hPercentChange: 'markets/CSPR24hPercentChange',
+      ETH24hPercentChange: 'markets/ETH24hPercentChange'
     }),
     ratioChange24h () {
-      if (this.eth && this.btc && this.ratio) {
-        const oldEthPrice = parseFloat(this.eth.current_price) + parseFloat(this.eth.price_change_24h)
-        const oldBtcPrice = parseFloat(this.btc.current_price) + parseFloat(this.btc.price_change_24h)
-        const oldRatio = parseFloat((oldEthPrice / oldBtcPrice).toFixed(6))
+      if (this.CSPR && this.ETH && this.ratio) {
+        const oldCSPRPrice = parseFloat(this.CSPR.current_price) + parseFloat(this.CSPR.price_change_24h)
+        const oldETHPrice = parseFloat(this.ETH.current_price) + parseFloat(this.ETH.price_change_24h)
+        const oldRatio = parseFloat((oldCSPRPrice / oldETHPrice).toFixed(6))
         const ratioChange = (((oldRatio - parseFloat(this.ratio)) / oldRatio) * 100).toFixed(2)
         return ratioChange
       }
@@ -69,7 +69,7 @@ export default {
       this.updateTime = new Date().getTime()
     }, 60000)
   },
-  methods: {
+  mCSPRods: {
     formatPrice,
     isPossitive (number) {
       return number >= 0 ? 'yes' : 'no'

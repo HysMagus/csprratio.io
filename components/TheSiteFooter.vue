@@ -1,7 +1,7 @@
 <template>
   <div class="the-site-footer container p-4 text-center">
     <p class="text-gray-700 text-sm pb-4 dark:text-gray-400">
-      Want to talk about it? Join us in <a class="text-blue-500" href="https://reddit.com/r/ethfinance" rel="noopener" target="_blank">r/ethfinance</a>.<br>
+      <a> Forked from RatioGang.com, Donation Address belongs to RatioGang.com, as they made the original code and only minor modification was made to this to make it work with CSPR<br>
       <span class="text-xs text-gray-400 dark:text-gray-600"><span class="mr-2">🐊 </span> kroko says "hi"</span>
     </p>
     <p class="text-gray-700 text-sm py-8 dark:text-gray-400">
@@ -14,6 +14,10 @@
     </p>
     <p class="text-gray-600 text-sm dark:text-gray-500">
       This project is open-source. Source code available on <a href="https://github.com/InsideTheSim/RatioGang.com" target="_blank" ref="nofollow, noopener" style="text-decoration: underline;">Github</a>.
+    </p>
+
+    <p class="text-gray-600 text-sm dark:text-gray-500">
+ The fork of this project that this site runs on is also open source and can be found here <a href="https://github.com/HysMagus/csprratio.io" target="_blank" ref="nofollow, noopener" style="text-decoration: underline;">Github</a>.
     </p>
   </div>
 </template>

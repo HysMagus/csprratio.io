@@ -1,19 +1,19 @@
 <template>
-  <div class="eth-stats max-w-screen-sm m-auto">
+  <div class="cspr-stats max-w-screen-sm m-auto">
     <table class="table-fixed">
       <thead>
         <tr>
-          <td colspan="2" class="text-center leading-md">Ethereum Statistics <small>(Last Update: {{ lastUpdated }})</small></td>
+          <td colspan="2" class="text-center leading-md">casper-network Statistics <small>(Last Update: {{ lastUpdated }})</small></td>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="w-1/2"><strong>Cost of Ethereum PoS Validator</strong></td>
+          <td class="w-1/2"><strong>Cost of casper-network PoS Validator</strong></td>
           <td class="w-1/2">{{ nodeCost }}</td>
         </tr>
         <tr>
-          <td class="w-1/2"><strong>Ethereum Circulating Supply</strong></td>
-          <td class="w-1/2">{{ ethCirculatingSupply }}</td>
+          <td class="w-1/2"><strong>casper-network Circulating Supply</strong></td>
+          <td class="w-1/2">{{ csprCirculatingSupply }}</td>
         </tr>
         <tr>
           <td class="w-1/2"><strong>All Time High (ATH)</strong></td>
@@ -43,18 +43,18 @@ dayjs.extend(relativeTime)
 export default {
   computed: {
     ...mapGetters({
-      eth: 'markets/eth',
+      cspr: 'markets/cspr',
       userSelectedCurrency: 'markets/userSelectedCurrency'
     }),
     nodeCost () {
-      return this.eth ? formatPrice(this.eth.current_price * 32, this.userSelectedCurrency.format, this.userSelectedCurrency.id) : false
+      return this.cspr ? formatPrice(this.cspr.current_price * 32, this.userSelectedCurrency.format, this.userSelectedCurrency.id) : false
     },
     allTimeHigh () {
-      return this.eth ? formatPrice(this.eth.ath, this.userSelectedCurrency.format, this.userSelectedCurrency.id) : false
+      return this.cspr ? formatPrice(this.cspr.ath, this.userSelectedCurrency.format, this.userSelectedCurrency.id) : false
     },
     daysSinceAllTimeHigh () {
-      if (this.eth) {
-        const athDate = dayjs(this.eth.ath_date)
+      if (this.cspr) {
+        const athDate = dayjs(this.cspr.ath_date)
         return dayjs().diff(athDate, 'day').toLocaleString(
           this.userSelectedCurrency.format,
           { maximumFractionDigits: 0 }
@@ -63,11 +63,11 @@ export default {
       return false
     },
     percentageFromAllTimeHigh () {
-      return this.eth ? `${this.eth.ath_change_percentage.toFixed(2)}%` : false
+      return this.cspr ? `${this.cspr.ath_change_percentage.toFixed(2)}%` : false
     },
-    ethCirculatingSupply () {
-      if (this.eth) {
-        return this.eth.circulating_supply.toLocaleString(
+    csprCirculatingSupply () {
+      if (this.cspr) {
+        return this.cspr.circulating_supply.toLocaleString(
           this.userSelectedCurrency.format,
           { maximumFractionDigits: 0 }
         )
@@ -75,8 +75,8 @@ export default {
       return false
     },
     lastUpdated () {
-      if (this.eth) {
-        return dayjs(this.eth.last_updated).fromNow()
+      if (this.cspr) {
+        return dayjs(this.cspr.last_updated).fromNow()
       }
       return false
     }
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.eth-stats {
+.cspr-stats {
   width: 100%;
 
   table {

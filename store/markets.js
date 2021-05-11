@@ -18,7 +18,7 @@ const getters = {
     return state.coinGecko
   },
   prices (state) {
-    if (state.prices.ethereum && state.prices.bitcoin) {
+    if (state.prices.cspr && state.prices.ethereum) {
       return state.prices
     }
     return false
@@ -32,14 +32,14 @@ const getters = {
   eth (state, getters) {
     if (getters.userSelectedCurrency.id === 'usd') {
       if (getters.prices && getters.coinGecko) {
-        const eth = getters.coinGecko.find(item => item.id === 'ethereum')
+        const eth = getters.coinGecko.find(item => item.id === 'cspr')
         return Object.assign({}, eth, {
-          current_price: getters.prices.ethereum
+          current_price: getters.prices.cspr
         })
       }
     }
     if (getters.coinGecko) {
-      return getters.coinGecko.find(item => item.id === 'ethereum')
+      return getters.coinGecko.find(item => item.id === 'cspr')
     }
     return false
   },
@@ -52,14 +52,14 @@ const getters = {
   btc (state, getters) {
     if (getters.userSelectedCurrency.id === 'usd') {
       if (getters.prices && getters.coinGecko) {
-        const btc = getters.coinGecko.find(item => item.id === 'bitcoin')
+        const btc = getters.coinGecko.find(item => item.id === 'ethereum')
         return Object.assign({}, btc, {
-          current_price: getters.prices.bitcoin
+          current_price: getters.prices.ethereum
         })
       }
     }
     if (getters.coinGecko) {
-      return getters.coinGecko.find(item => item.id === 'bitcoin')
+      return getters.coinGecko.find(item => item.id === 'ethereum')
     }
     return false
   },
@@ -161,7 +161,7 @@ const actions = {
   async fetchCoinGecko ({ state, commit }, cookies) {
     const coinGecko = new CoinGecko()
     const markets = await coinGecko.coins.markets({
-      ids: ['bitcoin', 'ethereum'],
+      ids: ['ethereum', 'cspr'],
       vs_currency: state.userSelectedCurrency.id
     })
     commit('setCoinGeckoData', markets.data)

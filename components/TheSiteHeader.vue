@@ -2,29 +2,29 @@
   <div class="the-site-header container flex flex-col xs:flex-row items-center justify-center pb-2 pt-4 md:pt-8 px-2">
     <div class="logo-container">
       <h1 class="text-3xl md:text-4xl text-center font-black text-gray-800 dark:text-gray-300">
-        💪 RatioGang 📈
+        CSPR Ratio :D
       </h1>
       <div class="text-center text-gray-700 text-sm md:text-md dark:text-gray-400">
         <p v-if="!ratio || ratio < 0.0425">
           Because seriously, what the fuck you guys.
         </p>
         <p v-else-if="ratio < 0.069">
-          In retrospect, it was inevitable.
+          This is nearly impossible
         </p>
         <p v-else-if="ratio < 0.07">
           Nice.
         </p>
         <p v-else-if="ratio < 0.0813">
-          Mom! Get the camera!
+          WTF
         </p>
         <p v-else-if="ratio < 0.145">
-          Approaching sensible value.
+          Approaching unreasonable value
         </p>
         <p v-else-if="ratio < 0.17">
           *Excited dolphin noises*
         </p>
         <p v-else>
-          We tried to tell you.
+          We're just as shocked as you
         </p>
       </div>
     </div>
